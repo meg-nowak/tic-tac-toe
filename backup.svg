@@ -1,0 +1,47 @@
+<svg xmlns = "http://www.w3.org/2000/svg" viewBox="0 0 300 300" xmlns:xlink = "http://www.w3.org/1999/xlink">
+
+    <mask id = "circle-mask">
+        <circle cx = "50" cy = "50" r="25" fill = "white" stroke = "white" stroke-width="white"/>
+        <circle cx = "50" cy = "50" r="10" fill = "black"/>
+    </mask>
+
+    <symbol id = "vertical-line">
+        <rect width="30" height = "260" rx = "10" ry ="10" stroke = "#4099FF" stroke-width = "2" fill = "#094f9e"/>
+    </symbol>
+
+    <symbol id = "horiz-line">
+        <rect width="260" height = "30" rx = "10" ry  = "10" stroke = "#4099FF" stroke-width = "2" fill = "#094f9e" x = "20"/>
+    </symbol>
+
+    <symbol id = "cross">
+        <g transform = "translate(10, 60) rotate(45 60 60)">
+            <rect width = "10" height = "50" fill = "black"/>
+            <rect width = "50" height = "10" fill = "black" x="-20" y="20"/>
+        </g>
+    </symbol>
+
+    <symbol id = "nought">
+        <circle cx = "50" cy = "50" r="25" fill = "red" stroke = "black" stroke-width = "2" mask = "url(#circle-mask)"/>
+        <circle cx = "50" cy = "50" r="10" fill = "none" stroke = "black" stroke-width = "2"/>
+    </symbol>
+
+    <symbol id = "diagonal-strike">
+        <g transform = "translate(200, 45) rotate(45 60 60)">
+            <rect width = "20" height = "350" fill = "gold"/>
+        </g>
+    </symbol>
+
+    <symbol id = "vertical-strike">
+        <rect width = "20" height = "260" fill = "gold" x = "45" y = "20"/>
+    </symbol>
+
+    <symbol id = "horizontal-strike">
+        <rect width = "260" height = "20" fill = "gold" x = "20" y = "45"/>
+    </symbol>
+
+    <use xlink:href = "#vertical-line" y = "20" x = "85"/>
+    <use xlink:href = "#vertical-line" y = "20" x = "185"/>
+    <use xlink:href = "#horiz-line" y="85"/>
+    <use xlink:href = "#horiz-line" y="185"/>
+
+</svg>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meg's Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="style.css"/>
+    <!-- This is a program I am making to demonstrate some of the knowledge I have learnt so far in CS335 -->
+    <!-- Unless stated otherwise, all the code in this project (including svg files) was made by me. -->
+</head>
+<body>
+
+<div id="gameBoard">
+    <div id = "svgContainer"></div>
+    <span id="buttonBoard">
+        <span id="topRow">
+                <button class="leftBtn" onclick="placeCross(1)">1</button>
+                <button class="midBtn" onclick="placeCross(2)">2</button>
+                <button class="rightBtn" onclick="placeCross(3)">3</button>
+            </span>
+            <span id="midRow">
+                <button class="leftBtn" onclick="placeCross(4)">4</button>
+                <button class="midBtn" onclick="placeCross(5)">5</button>
+                <button class="rightBtn" onclick="placeCross(6)">6</button>
+            </span>
+            <span id="botRow">
+                <button class="leftBtn" onclick="placeCross(7)">7</button>
+                <button class="midBtn" onclick="placeCross(8)">8</button>
+                <button class="rightBtn" onclick="placeCross(9)">9</button>
+            </span>
+        </span>
+</div>
+
+
+<script src = "tictactoe.js"></script>
+</body>
+</html>
