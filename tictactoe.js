@@ -63,13 +63,13 @@ function winCheck(recplay){
                 document.getElementById("turn").innerHTML = "Crosses wins!";
                 let p;
                 for(p in nodes){
-                    p = "i";
+                    nodes[p]="i";
                 }
             }else{
                 document.getElementById("turn").innerHTML = "Noughts wins!";
                 let p;
                 for(p in nodes){
-                    p = "i";
+                    nodes[p]="i";
                 }
             }
         }
@@ -85,13 +85,13 @@ function winCheck(recplay){
                 document.getElementById("turn").innerHTML = "Crosses wins!";
                 let p;
                 for(p in nodes){
-                    p = "i";
+                    nodes[p]="i";
                 }
             }else{
                 document.getElementById("turn").innerHTML = "Noughts wins!";
                 let p;
                 for(p in nodes){
-                    p = "i";
+                    nodes[p]="i";
                 }
             }
         }
