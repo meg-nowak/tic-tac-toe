@@ -176,6 +176,16 @@ function placeNought(node){
     svgCont.appendChild(svg);
 }
 
+function resetGame(){
+    turn = 0;
+    nodes = [0,0,0,0,0,0,0,0,0];
+    svg.querySelectorAll('*').forEach(n => n.remove()); //code for this line taken from https://medium.com/front-end-weekly/remove-all-children-of-the-node-in-javascript-968ad8f120eb
+    loadBoard();
+    let svgCont = document.getElementById("svgContainer");
+    svgCont.appendChild(svg);
+    document.getElementById("turn").innerHTML = "Nought's turn!";
+}
+
 loadBoard();
 let svgCont = document.getElementById("svgContainer");
 svgCont.appendChild(svg);
