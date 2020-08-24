@@ -51,9 +51,9 @@ function placeCross(node){
     cross.setAttribute("y","20");
     let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
     //gxd = g x displacement. gyd = g y displacement.
-    let gxd = ((row*95)+60).toString();
-    let gyd = ((col*95)+10).toString();
-    g.setAttribute("transform",("translate("+gyd+", "+gxd+") rotate(45 60 60)"));
+    let gyd = ((row*95)+60).toString();
+    let gxd = ((col*95)+10).toString();
+    g.setAttribute("transform",("translate("+gxd+", "+gyd+") rotate(45 60 60)"));
     g.appendChild(criss);
     g.appendChild(cross);
     svg.appendChild(g);
@@ -67,29 +67,44 @@ function placeNought(node){
     if(col===-1){
         col=2;
     }
+    //cxd = circle x displacement. cyd = circle y displacement.
+    let cyd = ((row*97)+50).toString();
+    let cxd = ((col*97)+50).toString();
+    let maskname = "myMask"+node.toString();
     let maskInner = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    maskInner.setAttribute("cx","50");
-    maskInner.setAttribute("cy","50");
+    maskInner.setAttribute("cx",cxd);
+    maskInner.setAttribute("cy",cyd);
     maskInner.setAttribute("r","25");
     maskInner.setAttribute("fill","white");
     maskInner.setAttribute("stroke","white");
     maskInner.setAttribute("stroke-width","2");
     let maskOuter = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    maskOuter.setAttribute("cx","50");
-    maskOuter.setAttribute("cy","50");
+    maskOuter.setAttribute("cx",cxd);
+    maskOuter.setAttribute("cy",cyd);
     maskOuter.setAttribute("r","10");
     maskOuter.setAttribute("fill","black");
     let mask = document.createElementNS("http://www.w3.org/2000/svg", "mask");
+    mask.setAttribute("id", maskname);
     mask.appendChild(maskInner);
     mask.appendChild(maskOuter);
+    svg.appendChild(mask);
     let outerCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-    outerCircle.setAttribute("cx","50");
-    outerCircle.setAttribute("cy","50");
+    outerCircle.setAttribute("cx",cxd);
+    outerCircle.setAttribute("cy",cyd);
     outerCircle.setAttribute("r","25");
     outerCircle.setAttribute("fill","red");
     outerCircle.setAttribute("stroke","black");
     outerCircle.setAttribute("stroke-width","2");
-    outerCircle.setAttribute("mask","2");
+    outerCircle.setAttribute("mask", "url(#"+maskname+")");
+    let innerCircle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+    innerCircle.setAttribute("cx",cxd);
+    innerCircle.setAttribute("cy",cyd);
+    innerCircle.setAttribute("r","10");
+    innerCircle.setAttribute("fill","none");
+    innerCircle.setAttribute("stroke","black");
+    innerCircle.setAttribute("stroke-width","2");
+    svg.appendChild(outerCircle);
+    svg.appendChild(innerCircle);
     let svgCont = document.getElementById("svgContainer");
     svgCont.appendChild(svg);
 }
