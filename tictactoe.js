@@ -61,12 +61,14 @@ function winCheck(recplay){
         if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
             if(recplay===1){
                 document.getElementById("turn").innerHTML = "Crosses wins!";
+                drawRowWin(r);
                 let p;
                 for(p in nodes){
                     nodes[p]="i";
                 }
             }else{
                 document.getElementById("turn").innerHTML = "Noughts wins!";
+                drawRowWin(r);
                 let p;
                 for(p in nodes){
                     nodes[p]="i";
@@ -83,12 +85,14 @@ function winCheck(recplay){
         if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
             if(recplay===1){
                 document.getElementById("turn").innerHTML = "Crosses wins!";
+                drawColumnWin(r);
                 let p;
                 for(p in nodes){
                     nodes[p]="i";
                 }
             }else{
                 document.getElementById("turn").innerHTML = "Noughts wins!";
+                drawColumnWin(r);
                 let p;
                 for(p in nodes){
                     nodes[p]="i";
@@ -104,12 +108,14 @@ function winCheck(recplay){
     if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
         if(recplay===1){
             document.getElementById("turn").innerHTML = "Crosses wins!";
+            drawDiagonalWin(1);
             let p;
             for(p in nodes){
                 nodes[p]="i";
             }
         }else{
             document.getElementById("turn").innerHTML = "Noughts wins!";
+            drawDiagonalWin(1);
             let p;
             for(p in nodes){
                 nodes[p]="i";
@@ -122,12 +128,14 @@ function winCheck(recplay){
     if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
         if(recplay===1){
             document.getElementById("turn").innerHTML = "Crosses wins!";
+            drawDiagonalWin(0);
             let p;
             for(p in nodes){
                 nodes[p]="i";
             }
         }else{
             document.getElementById("turn").innerHTML = "Noughts wins!";
+            drawDiagonalWin(0);
             let p;
             for(p in nodes){
                 nodes[p]="i";
@@ -163,6 +171,43 @@ function placeCross(node){
     svg.appendChild(g);
     let svgCont = document.getElementById("svgContainer");
     svgCont.appendChild(svg);
+}
+
+function drawRowWin(row){
+    let strike = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    strike.setAttribute("width","260");
+    strike.setAttribute("height","20");
+    strike.setAttribute("fill","gold");
+    strike.setAttribute("x","20");
+    let ydisplace = (((row)*100)+40).toString();
+    strike.setAttribute("y",ydisplace);
+    svg.appendChild(strike);
+}
+
+function drawColumnWin(col){
+    let strike = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    strike.setAttribute("width","20");
+    strike.setAttribute("height","260");
+    strike.setAttribute("fill","gold");
+    strike.setAttribute("y","20");
+    let xdisplace = (((col)*100)+40).toString();
+    strike.setAttribute("x",xdisplace);
+    svg.appendChild(strike);
+}
+
+function drawDiagonalWin(dia){
+    let strike = document.createElementNS("http://www.w3.org/2000/svg", "rect");
+    strike.setAttribute("width","20");
+    strike.setAttribute("height","350");
+    strike.setAttribute("fill","gold");
+    let g = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    if(dia===1){
+        g.setAttribute("transform","translate(15, 25) rotate(315 0 0)");
+    }else{
+        g.setAttribute("transform","translate(260, 15) rotate(45 0 0)")
+    }
+    g.appendChild(strike);
+    svg.appendChild(g);
 }
 
 function placeNought(node){
