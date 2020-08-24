@@ -96,6 +96,44 @@ function winCheck(recplay){
             }
         }
     }
+
+    //check diagonals
+    let first = 0;
+    let second = 4;
+    let third = 8;
+    if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
+        if(recplay===1){
+            document.getElementById("turn").innerHTML = "Crosses wins!";
+            let p;
+            for(p in nodes){
+                nodes[p]="i";
+            }
+        }else{
+            document.getElementById("turn").innerHTML = "Noughts wins!";
+            let p;
+            for(p in nodes){
+                nodes[p]="i";
+            }
+        }
+    }
+    first = 2;
+    second = 4;
+    third = 6;
+    if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
+        if(recplay===1){
+            document.getElementById("turn").innerHTML = "Crosses wins!";
+            let p;
+            for(p in nodes){
+                nodes[p]="i";
+            }
+        }else{
+            document.getElementById("turn").innerHTML = "Noughts wins!";
+            let p;
+            for(p in nodes){
+                nodes[p]="i";
+            }
+        }
+    }
 }
 
 function placeCross(node){
