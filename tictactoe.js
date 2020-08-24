@@ -1,5 +1,6 @@
 const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 let turn = 0;
+let nodes = [0,0,0,0,0,0,0,0,0];
 
 function loadBoard(){
     svg.setAttribute("viewBox", "0 0 300 300");
@@ -35,10 +36,13 @@ function loadBoard(){
 }
 
 function placeToken(square){
-    if(turn%2===1){
-        placeCross(square);
-    }else{
-        placeNought(square)
+    if(nodes[square-1]===0){
+        nodes[square-1]=1;
+        if(turn%2===1){
+            placeCross(square);
+        }else{
+            placeNought(square)
+        }
     }
 }
 
