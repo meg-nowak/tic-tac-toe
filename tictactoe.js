@@ -37,11 +37,63 @@ function loadBoard(){
 
 function placeToken(square){
     if(nodes[square-1]===0){
-        nodes[square-1]=1;
         if(turn%2===1){
+            nodes[square-1]=1;
             placeCross(square);
+            document.getElementById("turn").innerHTML = "Nought's turn!";
+            winCheck(1);
         }else{
-            placeNought(square)
+            nodes[square-1]=2;
+            placeNought(square);
+            document.getElementById("turn").innerHTML = "Cross's turn!";
+            winCheck(2);
+        }
+    }
+}
+
+function winCheck(recplay){
+    //check all rows
+    for(let r = 0; r < 3; r++){
+        let first = r*3;
+        let second = first+1;
+        let third = first+2;
+        console.log(first,second,third);
+        if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
+            if(recplay===1){
+                document.getElementById("turn").innerHTML = "Crosses wins!";
+                let p;
+                for(p in nodes){
+                    p = "i";
+                }
+            }else{
+                document.getElementById("turn").innerHTML = "Noughts wins!";
+                let p;
+                for(p in nodes){
+                    p = "i";
+                }
+            }
+        }
+    }
+    //check all columns
+    for(let r = 0; r < 3; r++){
+        let first = r;
+        let second = r+3;
+        let third = r+6;
+        console.log(first,second,third);
+        if(nodes[first]===recplay && nodes[second]===recplay && nodes[third]===recplay){
+            if(recplay===1){
+                document.getElementById("turn").innerHTML = "Crosses wins!";
+                let p;
+                for(p in nodes){
+                    p = "i";
+                }
+            }else{
+                document.getElementById("turn").innerHTML = "Noughts wins!";
+                let p;
+                for(p in nodes){
+                    p = "i";
+                }
+            }
         }
     }
 }
